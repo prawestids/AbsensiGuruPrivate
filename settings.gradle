@@ -1,0 +1,2 @@
+rootProject.name='AbsensiGuruPrivate'
+include ':app'
