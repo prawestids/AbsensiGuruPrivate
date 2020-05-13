@@ -30,11 +30,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.absensiguruprivate.rest.ApiClient_prawesti;
 import com.example.absensiguruprivate.rest.ApiInterface_prawesti;
 
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
 
 public class FormActivity_prawesti extends AppCompatActivity {
     private Button btnTambah, btnUpload;
@@ -89,7 +84,6 @@ public class FormActivity_prawesti extends AppCompatActivity {
             fotoProfil.setImageBitmap(foto);
         }
     }
-
     private File createTempFile(Bitmap bitmap) {
         File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES)
                 , System.currentTimeMillis() +"_image.jpeg");
