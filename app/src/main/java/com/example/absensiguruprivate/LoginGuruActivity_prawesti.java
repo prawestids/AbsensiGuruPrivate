@@ -1,6 +1,7 @@
 package com.example.absensiguruprivate;
 
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,9 @@ import com.example.absensiguruprivate.helper.Session_prawesti;
 import com.example.absensiguruprivate.model.User_prawesti;
 import com.example.absensiguruprivate.rest.ApiClient_prawesti;
 import com.example.absensiguruprivate.rest.ApiInterface_prawesti;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -72,6 +76,16 @@ public class LoginGuruActivity_prawesti extends AppCompatActivity {
                         String password = json.getJSONObject(0).getString("password");
                         String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
                         String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                        FusedLocationProviderClient fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(LoginGuruActivity_prawesti.this);
+                        fusedLocationProviderClient.getLastLocation().addOnSuccessListener(LoginGuruActivity_prawesti.this, new OnSuccessListener<Location>() {
+                            @Override
+                            public void onSuccess(Location location) {
+                                if (location != null) {
+                                    session.setLocLatitude(location.getLatitude());
+                                    session.setLocLongitude(location.getLongitude());
+                                }
+                            }
+                        });
 
                         session.setLoggedInStatus(true);
                         session.setUsername(username);

@@ -98,10 +98,10 @@ public class GuruActivity_prawesti extends AppCompatActivity {
 
                     for (AbsensiItem_prawesti item : absenItems) {
                         absen.add(new AbsensiItem_prawesti(item.getUsername(), item.getPassword(), item.getJam_login(),
-                                item.getJam_logout(), item.getTanggal()));
+                                item.getJam_logout(), item.getTanggal(), item.getLokasi_latitude(), item.getLokasi_longitude()));
                     }
                     absen.add(new AbsensiItem_prawesti(session.getUsername(), session.getPassword(), session.getLoginTime(),
-                            session.getLogoutTime(), session.getDate()));
+                            session.getLogoutTime(), session.getDate(), session.getLocLatitude(), session.getLocLongitude()));
 
                     itemAdapter.add(absen);
                     absenView.setAdapter(fastAdapter);
@@ -135,10 +135,12 @@ public class GuruActivity_prawesti extends AppCompatActivity {
                 String jam_login = session.getLoginTime();
                 String jam_logout = session.getLogoutTime();
                 String tanggal = session.getDate();
+                double lokasi_latitude = session.getLocLatitude();
+                double lokasi_longitude = session.getLocLongitude();
 
                 ApiInterface_prawesti apiInterface = ApiClient_prawesti.getClient().create(ApiInterface_prawesti.class);
 
-                Call<ResponseBody> call = apiInterface.absenGuru(new AbsensiItem_prawesti(username, password, jam_login, jam_logout, tanggal));
+                Call<ResponseBody> call = apiInterface.absenGuru(new AbsensiItem_prawesti(username, password, jam_login, jam_logout, tanggal, lokasi_latitude, lokasi_longitude));
 
                 call.enqueue(new Callback<ResponseBody>() {
                     @Override

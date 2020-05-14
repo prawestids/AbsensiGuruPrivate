@@ -11,6 +11,8 @@ public class Session_prawesti {
     private static final String LOGIN_TIME_PREF = "jam_login";
     private static final String LOGOUT_TIME_PREF = "jam_logout";
     private static final String DATE_PREF = "tanggal";
+    private static final String LOC_LATITUDE_PREF = "lokasi latitude";
+    private static final String LOC_LONGITUDE_PREF = "lokasi longitude";
 
     private SharedPreferences preferences;
 
@@ -23,6 +25,7 @@ public class Session_prawesti {
     }
 
     public boolean getLoggedInstatus() {
+
         return preferences.getBoolean(LOGGED_IN_PREF, false);
     }
 
@@ -31,6 +34,7 @@ public class Session_prawesti {
     }
 
     public String getUsername() {
+
         return preferences.getString(USERNAME_PREF, "");
     }
 
@@ -39,6 +43,7 @@ public class Session_prawesti {
     }
 
     public String getPassword() {
+
         return preferences.getString(PASSWORD_PREF, "");
     }
 
@@ -47,6 +52,7 @@ public class Session_prawesti {
     }
 
     public String getLoginTime() {
+
         return preferences.getString(LOGIN_TIME_PREF, "");
     }
 
@@ -54,19 +60,38 @@ public class Session_prawesti {
         preferences.edit().putString(LOGOUT_TIME_PREF, logoutTime).apply();
     }
 
-    public String getLogoutTime() {
+    public String getLogoutTime()
+    {
         return preferences.getString(LOGOUT_TIME_PREF, "");
     }
 
     public void setDate(String date) {
+
         preferences.edit().putString(DATE_PREF, date).apply();
     }
 
     public String getDate() {
+
         return preferences.getString(DATE_PREF, "");
+    }
+    public void setLocLatitude(double latitude) {
+        preferences.edit().putLong(LOC_LATITUDE_PREF, Double.doubleToRawLongBits(latitude)).apply();
+    }
+
+    public double getLocLatitude() {
+        return Double.longBitsToDouble(preferences.getLong(LOC_LATITUDE_PREF, 0));
+    }
+
+    public void setLocLongitude(double longitude) {
+        preferences.edit().putLong(LOC_LONGITUDE_PREF, Double.doubleToRawLongBits(longitude)).apply();
+    }
+
+    public double getLocLongitude() {
+        return Double.longBitsToDouble(preferences.getLong(LOC_LONGITUDE_PREF, 0));
     }
 
     public void logout() {
+
         preferences.edit().clear().apply();
     }
 }

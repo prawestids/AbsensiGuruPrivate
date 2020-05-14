@@ -3,6 +3,7 @@
     package="com.example.absensiguruprivate">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDWUtdcT4lxlRBEi9dQlnfv3GlEP0wALj0" />
         <activity android:name=".FormActivity_prawesti"/>
         <activity android:name=".GuruActivity_prawesti"/>
         <activity android:name=".AdminActivity_prawesti"/>
