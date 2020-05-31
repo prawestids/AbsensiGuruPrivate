@@ -4,33 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    android:background="#303030"
     tools:context=".GuruActivity_prawesti">
 
-    <include android:id="@+id/item_profil" layout="@layout/item_guru_prawesti" />
+    <include
+        android:id="@+id/item_profil"
+        layout="@layout/item_guru_prawesti" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_absen"
+        android:id="@+id/rv_siswa"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="5dp"
-        android:paddingEnd="5dp"
-        android:paddingTop="140dp"
-        android:paddingBottom="75dp"
+        android:paddingTop="130dp"
+        android:paddingBottom="7dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_exit_to_app_black_24dp"
-        android:layout_margin="15dp"
-        android:backgroundTint="@color/colorAccent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:fabSize="normal"
-        app:borderWidth="0dp"
-        app:elevation="6dp"
-        android:onClick="onClickLogout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

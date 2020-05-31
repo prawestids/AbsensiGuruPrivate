@@ -22,34 +22,32 @@ public class AbsensiItem_prawesti extends AbstractItem<AbsensiItem_prawesti, Abs
     private String tanggal;
     private double lokasi_latitude;
     private double lokasi_longitude;
+    private String nim_siswa;
+    private String nama;
+    private String alamat;
 
-    public AbsensiItem_prawesti(String username, String password, String jam_login, String jam_logout, String tanggal, double lokasi_latitude, double lokasi_longitude) {
+    public AbsensiItem_prawesti(String username, String password, String jam_login, String jam_logout, String tanggal, double lokasi_latitude, double lokasi_longitude, String nim_siswa, String nama, String alamat) {
         this.username = username;
         this.password = password;
         this.jam_login = jam_login;
         this.jam_logout = jam_logout;
         this.tanggal = tanggal;
+        this.lokasi_latitude = lokasi_latitude;
+        this.lokasi_longitude = lokasi_longitude;
+        this.nim_siswa = nim_siswa;
+        this.nama = nama;
+        this.alamat = alamat;
     }
 
     public String getUsername() {
-
         return username;
     }
 
-    public double getLokasi_latitude() {
-        return lokasi_latitude;
-    }
-
-    public double getLokasi_longitude() {
-        return lokasi_longitude;
-    }
     public String getPassword() {
-
         return password;
     }
 
     public String getJam_login() {
-
         return jam_login;
     }
 
@@ -59,6 +57,26 @@ public class AbsensiItem_prawesti extends AbstractItem<AbsensiItem_prawesti, Abs
 
     public String getTanggal() {
         return tanggal;
+    }
+
+    public double getLokasi_latitude() {
+        return lokasi_latitude;
+    }
+
+    public double getLokasi_longitude() {
+        return lokasi_longitude;
+    }
+
+    public String getNim_siswa() {
+        return nim_siswa;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public String getAlamat() {
+        return alamat;
     }
 
     @NonNull
@@ -79,44 +97,45 @@ public class AbsensiItem_prawesti extends AbstractItem<AbsensiItem_prawesti, Abs
 
 
     public class ViewHolder extends FastAdapter.ViewHolder<AbsensiItem_prawesti> {
-        private TextView jam_login, jam_logout, tanggal, latitude, longitude;
+        private TextView jam_login, jam_logout, tanggal, nama, alamat;
 
         public ViewHolder(View itemView) {
             super(itemView);
             jam_login = itemView.findViewById(R.id.txt_jam_login);
             jam_logout = itemView.findViewById(R.id.txt_jam_logout);
             tanggal = itemView.findViewById(R.id.txt_tanggal);
-            latitude = itemView.findViewById(R.id.txt_lokasi_latitude);
-            longitude = itemView.findViewById(R.id.txt_lokasi_longitude);
+            nama = itemView.findViewById(R.id.txt_siswa_diajar);
+            alamat = itemView.findViewById(R.id.txt_alamat_siswa);
         }
 
         @Override
         public void bindView(final AbsensiItem_prawesti item, List<Object> payloads) {
-                jam_login.setText(item.jam_login);
-                jam_logout.setText(item.jam_logout);
-                tanggal.setText(item.tanggal);
-                latitude.setText(String.valueOf(item.lokasi_latitude));
-                longitude.setText(String.valueOf(item.lokasi_longitude));
+            jam_login.setText(item.jam_login);
+            jam_logout.setText(item.jam_logout);
+            tanggal.setText(item.tanggal);
+            nama.setText(item.nama);
+            alamat.setText(item.alamat);
 
-                itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Context context = itemView.getContext();
-                        Intent intent = new Intent(context, MapsActivity_prawesti.class);
-                        intent.putExtra("latitude", item.lokasi_latitude);
-                        intent.putExtra("longitude", item.lokasi_longitude);
-                        context.startActivity(intent);
-                    }
-                });
-            }
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = itemView.getContext();
+                    Intent intent = new Intent(context, MapsActivity_prawesti.class);
+                    intent.putExtra("latitude", item.lokasi_latitude);
+                    intent.putExtra("longitude", item.lokasi_longitude);
+                    context.startActivity(intent);
+                }
+            });
+
+        }
 
         @Override
         public void unbindView(AbsensiItem_prawesti item) {
             jam_login.setText(null);
             jam_logout.setText(null);
             tanggal.setText(null);
-            latitude.setText(null);
-            longitude.setText(null);
+            nama.setText(null);
+            alamat.setText(null);
         }
     }
 }

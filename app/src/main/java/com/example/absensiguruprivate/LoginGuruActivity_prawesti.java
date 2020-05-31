@@ -76,18 +76,9 @@ public class LoginGuruActivity_prawesti extends AppCompatActivity {
                         String password = json.getJSONObject(0).getString("password");
                         String currentTime = new SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(new Date());
                         String currentDate = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
-                        FusedLocationProviderClient fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(LoginGuruActivity_prawesti.this);
-                        fusedLocationProviderClient.getLastLocation().addOnSuccessListener(LoginGuruActivity_prawesti.this, new OnSuccessListener<Location>() {
-                            @Override
-                            public void onSuccess(Location location) {
-                                if (location != null) {
-                                    session.setLocLatitude(location.getLatitude());
-                                    session.setLocLongitude(location.getLongitude());
-                                }
-                            }
-                        });
 
                         session.setLoggedInStatus(true);
+                        session.setLoggedInRole("guru");
                         session.setUsername(username);
                         session.setPassword(password);
                         session.setLoginTime(currentTime);

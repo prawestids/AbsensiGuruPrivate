@@ -9,22 +9,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.absensiguruprivate.helper.Session_prawesti;
-import com.example.absensiguruprivate.model.GuruItem_prawesti;
-import com.example.absensiguruprivate.rest.ApiClient_prawesti;
-import com.example.absensiguruprivate.rest.ApiInterface_prawesti;
-import com.mikepenz.fastadapter.FastAdapter;
-import com.mikepenz.fastadapter.adapters.ItemAdapter;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.absensiguruprivate.ui.SectionsPagerAdapter_prawesti;
+import com.google.android.material.tabs.TabLayout;
 
 public class AdminActivity_prawesti extends AppCompatActivity {
     private Session_prawesti session;
@@ -36,47 +25,20 @@ public class AdminActivity_prawesti extends AppCompatActivity {
         setContentView(R.layout.activity_admin_prawesti);
 
         session = new Session_prawesti(getApplicationContext());
-
-        final RecyclerView guruView = findViewById(R.id.rv_guru);
-        final ItemAdapter itemAdapter = new ItemAdapter<>();
-        final FastAdapter fastAdapter = FastAdapter.with(itemAdapter);
-
-        final List guru = new ArrayList<>();
-
-        ApiInterface_prawesti apiInterface = ApiClient_prawesti.getClient().create(ApiInterface_prawesti.class);
-        Call<List<GuruItem_prawesti>> call = apiInterface.getGuru();
-
-        call.enqueue(new Callback<List<GuruItem_prawesti>>() {
-            @Override
-            public void onResponse(Call<List<GuruItem_prawesti>> call, Response<List<GuruItem_prawesti>> response) {
-                List<GuruItem_prawesti> guruItems = response.body();
-
-                if (response.isSuccessful()) {
-                    for (GuruItem_prawesti item : guruItems) {
-                        guru.add(new GuruItem_prawesti(item.getId_guru(), item.getNama(), item.getAlamat(), item.getJenis_kelamin(),
-                                item.getNo_telp(), item.getFoto(), item.getUsername(), item.getPassword()));
-                    }
-
-                    itemAdapter.add(guru);
-                    guruView.setAdapter(fastAdapter);
-
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
-                    guruView.setLayoutManager(layoutManager);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Gagal menampilkan data", Toast.LENGTH_SHORT).show();
-                }
-            }
-
-
-            @Override
-            public void onFailure(Call<List<GuruItem_prawesti>> call, Throwable t) {
-                error.setText(t.getMessage());
-            }
-        });
-
+        SectionsPagerAdapter_prawesti sectionsPagerAdapter = new SectionsPagerAdapter_prawesti(this, getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.view_pager);
+        viewPager.setAdapter(sectionsPagerAdapter);
+        TabLayout tabs = findViewById(R.id.tabs);
+        tabs.setupWithViewPager(viewPager);
     }
-    public void myOnClick(View view) {
-        Intent intent = new Intent(getApplicationContext(), FormActivity_prawesti.class);
+
+    public void myOnClickAddGuru(View view) {
+        Intent intent = new Intent(getApplicationContext(), FormGuruActivity_prawesti.class);
+        startActivity(intent);
+    }
+
+    public void myOnClickAddSiswa(View view) {
+        Intent intent = new Intent(getApplicationContext(), FormSiswaActivity_prawesti.class);
         startActivity(intent);
     }
 

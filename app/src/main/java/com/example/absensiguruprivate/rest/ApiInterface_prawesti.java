@@ -2,6 +2,7 @@ package com.example.absensiguruprivate.rest;
 
 import com.example.absensiguruprivate.model.AbsensiItem_prawesti;
 import com.example.absensiguruprivate.model.GuruItem_prawesti;
+import com.example.absensiguruprivate.model.SiswaItem_prawesti;
 import com.example.absensiguruprivate.model.User_prawesti;
 
 import java.util.List;
@@ -27,15 +28,21 @@ public interface ApiInterface_prawesti {
     @POST("LoginGuru")
     Call<ResponseBody> loginGuru(@Body User_prawesti user);
 
-    @GET("Guru")
+    @GET("DataGuru")
     Call<List<GuruItem_prawesti>> getGuru();
 
-    @GET("Guru")
+    @GET("DataGuru")
     Call<List<GuruItem_prawesti>> getGuruByUsername(
             @Query("username") String username
     );
 
-    @GET("AbsenGuru")
+    @GET("dataSiswa")
+    Call<List<SiswaItem_prawesti>> getSiswa();
+
+    @POST("DataSiswa")
+    Call<ResponseBody> tambahSiswa(@Body SiswaItem_prawesti siswa);
+
+    @GET("absenGuru")
     Call<List<AbsensiItem_prawesti>> getAbsenByUsername(
             @Query("username") String username
     );
@@ -44,9 +51,10 @@ public interface ApiInterface_prawesti {
     Call<ResponseBody> absenGuru(@Body AbsensiItem_prawesti absen);
 
     @Multipart
-    @POST("Guru")
+    @POST("DataGuru")
     Call<ResponseBody> tambahGuru(
             @Part MultipartBody.Part photo,
             @PartMap Map<String, RequestBody> text);
+
 
 }

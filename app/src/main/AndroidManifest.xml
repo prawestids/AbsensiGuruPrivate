@@ -8,17 +8,23 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label= "@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity android:name=".SiswaPrivateActivity_prawesti"/>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDWUtdcT4lxlRBEi9dQlnfv3GlEP0wALj0" />
-        <activity android:name=".FormActivity_prawesti"/>
+            android:value="AIzaSyD-B-bVAF5l5LvZMqXyMb_SNZgzcSs-das" />
+
+        <activity android:name=".FormGuruActivity_prawesti"/>
         <activity android:name=".GuruActivity_prawesti"/>
         <activity android:name=".AdminActivity_prawesti"/>
+        <activity android:name=".DetailAbsen_prawesti"/>
+        <activity android:name=".FormSiswaActivity_prawesti"/>
         <activity android:name=".LoginAdminActivity_prawesti"/>
+        <activity android:name=".MapsActivity_prawesti"/>
         <activity android:name=".LoginGuruActivity_prawesti">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,18 +11,6 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.HashMap;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,8 +18,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.absensiguruprivate.rest.ApiClient_prawesti;
 import com.example.absensiguruprivate.rest.ApiInterface_prawesti;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.HashMap;
 
-public class FormActivity_prawesti extends AppCompatActivity {
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class FormGuruActivity_prawesti extends AppCompatActivity {
     private Button btnTambah, btnUpload;
     private EditText inputId, inputNama, inputAlamat, inputTelp, inputUsername, inputPassword;
     private RadioGroup radioGroup;
@@ -42,7 +43,7 @@ public class FormActivity_prawesti extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_prawesti);
+        setContentView(R.layout.activity_form_guru_prawesti);
 
         btnTambah = findViewById(R.id.btn_tambah_data_guru);
         btnUpload = findViewById(R.id.btn_upload_foto);
@@ -84,6 +85,7 @@ public class FormActivity_prawesti extends AppCompatActivity {
             fotoProfil.setImageBitmap(foto);
         }
     }
+
     private File createTempFile(Bitmap bitmap) {
         File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES)
                 , System.currentTimeMillis() +"_image.jpeg");
@@ -138,7 +140,7 @@ public class FormActivity_prawesti extends AppCompatActivity {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "Berhasil", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), AdminActivity_prawesti.class);
+                    Intent intent = new Intent(getApplicationContext(), FragmentDataGuru_prawesti.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "Gagal", Toast.LENGTH_SHORT).show();

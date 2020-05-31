@@ -68,6 +68,7 @@ public class LoginAdminActivity_prawesti extends AppCompatActivity {
                         String password = json.getJSONObject(0).getString("password");
 
                         session.setLoggedInStatus(true);
+                        session.setLoggedInRole("admin");
                         session.setUsername(username);
                         session.setPassword(password);
 
