@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jam Login"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Jam Logout"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tittle_jam_login" />
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Tanggal"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tittle_jam_logout" />
@@ -45,7 +45,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Siswa yang Diajar"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tittle_tanggal"/>
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Alamat Siswa"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tittle_siswa_diajar"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="1"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -77,7 +77,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintTop_toBottomOf="@id/txt_jam_login"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -87,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintTop_toBottomOf="@id/txt_jam_logout"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -97,7 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintTop_toBottomOf="@id/txt_tanggal"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -107,7 +107,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="5"
-            android:textColor="#FFF"
+            android:textColor="#000080"
             android:layout_margin="7dp"
             app:layout_constraintTop_toBottomOf="@id/txt_siswa_diajar"
             app:layout_constraintEnd_toEndOf="parent"/>

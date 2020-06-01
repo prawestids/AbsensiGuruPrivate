@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="10dp"
-    android:background="#303030"
     tools:context=".GuruActivity_prawesti">
 
     <include
@@ -19,6 +18,8 @@
         android:paddingTop="130dp"
         android:paddingBottom="7dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="113dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

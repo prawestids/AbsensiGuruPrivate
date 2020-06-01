@@ -25,6 +25,7 @@ public class AdminActivity_prawesti extends AppCompatActivity {
         setContentView(R.layout.activity_admin_prawesti);
 
         session = new Session_prawesti(getApplicationContext());
+
         SectionsPagerAdapter_prawesti sectionsPagerAdapter = new SectionsPagerAdapter_prawesti(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);

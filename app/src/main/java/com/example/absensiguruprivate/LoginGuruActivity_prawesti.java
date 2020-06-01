@@ -59,6 +59,15 @@ public class LoginGuruActivity_prawesti extends AppCompatActivity {
                 userLogin(inputUsername.getText().toString(), inputPassword.getText().toString());
             }
         });
+        if (session.getLoggedInstatus()) {
+            if (session.getLoggedInRole().equals("admin")) {
+                Intent intent = new Intent(getApplicationContext(), AdminActivity_prawesti.class);
+                startActivity(intent);
+            } else if (session.getLoggedInRole().equals("guru")) {
+                Intent intent = new Intent(getApplicationContext(), GuruActivity_prawesti.class);
+                startActivity(intent);
+            }
+        }
     }
 
     private void userLogin(String username, String password) {

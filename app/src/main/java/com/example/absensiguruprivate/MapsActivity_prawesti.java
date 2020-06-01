@@ -24,7 +24,6 @@ public class MapsActivity_prawesti extends FragmentActivity implements OnMapRead
     private double latitude, longitude;
     private FloatingActionButton fab, fab1;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +43,8 @@ public class MapsActivity_prawesti extends FragmentActivity implements OnMapRead
 
     @Override
     public void onMapReady(final GoogleMap googleMap) {
-        double latitude = getIntent().getDoubleExtra("latitude", 0);
-        double longitude = getIntent().getDoubleExtra("longitude", 0);
+        latitude = getIntent().getDoubleExtra("latitude", 0);
+        longitude = getIntent().getDoubleExtra("longitude", 0);
 
         Toast.makeText(MapsActivity_prawesti.this,
                 "Lat : " + latitude + " Long : " + longitude,
@@ -58,6 +57,7 @@ public class MapsActivity_prawesti extends FragmentActivity implements OnMapRead
         mMap.addMarker(new MarkerOptions().position(sydney).title("Lokasi saat ini"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 16));
     }
+
     public void onClickBack(View view) {
         Intent intent = new Intent(MapsActivity_prawesti.this, SiswaPrivateActivity_prawesti.class);
         startActivity(intent);
@@ -85,3 +85,4 @@ public class MapsActivity_prawesti extends FragmentActivity implements OnMapRead
         alert.show();
     }
 }
+
